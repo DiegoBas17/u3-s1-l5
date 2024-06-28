@@ -38,22 +38,27 @@ class MyCarouselItem extends Component {
           arrayFilms
             .slice(this.props.indexS, this.props.indexE)
             .map((film, index) => (
-              <Col key={index}>
-                {film.Poster ? (
-                  <>
-                    <img
-                      src={film.Poster}
-                      alt={film.Title}
-                      crossOrigin="anonymous"
-                      className="img-fluid"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </>
-                ) : (
-                  <Spinner animation="border" role="status" variant="info">
-                    <span className="visually-hidden">Loading...</span>
-                  </Spinner>
-                )}
+              <Col
+                key={index}
+                className={
+                  index === 4
+                    ? "d-none d-xl-block"
+                    : index === 3
+                    ? "d-none d-lg-block"
+                    : index === 2
+                    ? "d-none d-md-block"
+                    : index === 1
+                    ? "d-none d-sm-block"
+                    : ""
+                }
+              >
+                <img
+                  src={film.Poster}
+                  alt={film.Title}
+                  crossOrigin="anonymous"
+                  className="img-fluid"
+                  style={{ objectFit: "cover" }}
+                />
               </Col>
             ))
         )}
