@@ -9,7 +9,7 @@ class Home extends Component {
     return (
       <main>
         <Container className="d-flex align-items-center justify-content-between">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center mt-4">
             <h1 className="d-inline">TV Shows</h1>
             <Dropdown className="d-inline">
               <Dropdown.Toggle

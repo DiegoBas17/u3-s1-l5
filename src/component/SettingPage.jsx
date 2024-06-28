@@ -6,7 +6,7 @@ class SettingPage extends Component {
     return (
       <main>
         <Container className="my-5">
-          <Row className="row justify-content-center">
+          <Row className="justify-content-center">
             <Col sm="10" lg="7">
               <h1>Account</h1>
               <hr />
