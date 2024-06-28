@@ -3,6 +3,7 @@ import { Container, Dropdown } from "react-bootstrap";
 import { Grid } from "react-bootstrap-icons";
 import { JustifyLeft } from "react-bootstrap-icons";
 import MyCarousel from "./MyCarousel";
+import MySlick from "../MySlick";
 
 class Home extends Component {
   render() {
@@ -35,12 +36,28 @@ class Home extends Component {
             />
           </div>
         </Container>
-        <h2>Trending Now</h2>
-        <MyCarousel nameFilm={"harry potter"} />
-        <h2>Watch It Again</h2>
-        <MyCarousel nameFilm={"batman"} />
-        <h2>New Releases</h2>
-        <MyCarousel nameFilm={"superman"} />
+        <Container>
+          <h2>Trending Now</h2>
+          <MyCarousel
+            nameFilm={"harry potter"}
+            nameFilm1={"pokemon"}
+            nameFilm2={"batman"}
+          />
+          <h2>Watch It Again</h2>
+          <MyCarousel
+            nameFilm={"batman"}
+            nameFilm1={"harry potter"}
+            nameFilm2={"pokemon"}
+          />
+          <h2>New Releases</h2>
+          <MyCarousel
+            nameFilm={"pokemon"}
+            nameFilm1={"batman"}
+            nameFilm2={"harry potter"}
+          />
+          <h2>Anime</h2>
+          <MySlick nameFilm={"rocky"} />
+        </Container>
       </main>
     );
   }

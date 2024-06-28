@@ -16,6 +16,7 @@ class MyCarouselItem extends Component {
         }
       })
       .then((objFilm) => {
+        console.log(this.props.nameFilm + objFilm.Search);
         console.log(objFilm.Search);
         if (objFilm.Search) {
           this.setState({ arrayFilms: objFilm.Search, isLoading: false });
