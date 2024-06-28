@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Container, Dropdown } from "react-bootstrap";
 import { Grid } from "react-bootstrap-icons";
 import { JustifyLeft } from "react-bootstrap-icons";
+import MyCarousel from "./MyCarousel";
 
 class Home extends Component {
   render() {
@@ -34,6 +35,8 @@ class Home extends Component {
             />
           </div>
         </Container>
+        <h2>Trending Now</h2>
+        <MyCarousel nameFilm={"harry potter"} />
       </main>
     );
   }
