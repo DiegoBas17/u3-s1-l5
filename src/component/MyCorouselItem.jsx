@@ -53,13 +53,15 @@ class MyCarouselItem extends Component {
                     : ""
                 }
               >
-                <img
-                  src={film.Poster}
-                  alt={film.Title}
-                  crossOrigin="anonymous"
-                  className="img-fluid"
-                  style={{ objectFit: "cover" }}
-                />
+                <a href="#">
+                  <img
+                    src={film.Poster}
+                    alt={film.Title}
+                    crossOrigin="anonymous"
+                    className="img-fluid"
+                    style={{ objectFit: "cover" }}
+                  />
+                </a>
               </Col>
             ))
         )}
