@@ -7,7 +7,7 @@ import imgProfile from "../assets/kids_icon.png";
 class TopBar extends Component {
   render() {
     return (
-      <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
+      <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Brand href="#home">
             <img src={logo} alt="logoNetflix" height={50} />
@@ -30,16 +30,12 @@ class TopBar extends Component {
                 <img src={imgProfile} alt="imgProfiloKids" height={50} />
               </Nav.Link>
               <NavDropdown title="" id="basic-nav-dropdown" align="end">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.1">Profilo</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
-                  Another action
+                  Impostazioni
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
+                  Contattaci
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
