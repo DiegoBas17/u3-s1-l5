@@ -37,6 +37,10 @@ class Home extends Component {
         </Container>
         <h2>Trending Now</h2>
         <MyCarousel nameFilm={"harry potter"} />
+        <h2>Watch It Again</h2>
+        <MyCarousel nameFilm={"batman"} />
+        <h2>New Releases</h2>
+        <MyCarousel nameFilm={"superman"} />
       </main>
     );
   }

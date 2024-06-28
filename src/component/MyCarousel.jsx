@@ -6,7 +6,9 @@ class MyCarousel extends Component {
   render() {
     return (
       <Carousel>
-        <MyCarouselItem nameFilm={this.props.nameFilm} />
+        <MyCarouselItem nameFilm={this.props.nameFilm} indexS={0} indexE={3} />
+        <MyCarouselItem nameFilm={this.props.nameFilm} indexS={3} indexE={6} />
+        <MyCarouselItem nameFilm={this.props.nameFilm} indexS={6} indexE={9} />
       </Carousel>
     );
   }

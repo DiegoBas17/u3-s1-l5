@@ -4,6 +4,7 @@ import { Carousel, Col, Row } from "react-bootstrap";
 class MyCarouselItem extends Component {
   state = {
     arrayFilms: [],
+    isLoading: true,
   };
   fetchFilms = () => {
     fetch(`http://www.omdbapi.com/?apikey=f1416e37&s=${this.props.nameFilm}`)
@@ -15,8 +16,10 @@ class MyCarouselItem extends Component {
         }
       })
       .then((objFilm) => {
-        console.log(objFilm);
-        this.setState({ arrayFilms: objFilm.Search });
+        console.log(objFilm.Search);
+        if (objFilm.Search) {
+          this.setState({ arrayFilms: objFilm.Search, isLoading: false });
+        }
       })
       .catch((err) => alert(err));
   };
@@ -26,18 +29,32 @@ class MyCarouselItem extends Component {
   render() {
     const { arrayFilms } = this.state;
     return (
-      <Carousel.Item>
+      <Carousel.Item className="d-block" interval={2000}>
         <Row className=" g-1">
-          {
-            <Col md="3" lg="2">
-              <img
-                src={arrayFilms[1].Poster}
-                alt=""
-                crossorigin="anonymous"
-                className="img-fluid w-100"
-              />
-            </Col>
-          }
+          {this.state.isLoading ? (
+            <p>Caricamento in corso...</p>
+          ) : (
+            arrayFilms
+              .slice(this.props.indexS, this.props.indexE)
+              .map((film, index) => (
+                <Col key={index} md="3" lg="2">
+                  {film.Poster ? (
+                    <>
+                      <img
+                        src={film.Poster}
+                        alt={film.Title}
+                        className="img-fluid w-100"
+                        crossOrigin="anonymous"
+                        /* width={400}
+                        height={400} */
+                      />
+                    </>
+                  ) : (
+                    <p>Caricamento in corso...</p>
+                  )}
+                </Col>
+              ))
+          )}
         </Row>
       </Carousel.Item>
     );
