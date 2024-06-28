@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Carousel, Col, Row } from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 
 class MyCarouselItem extends Component {
   state = {
@@ -29,34 +29,35 @@ class MyCarouselItem extends Component {
   render() {
     const { arrayFilms } = this.state;
     return (
-      <Carousel.Item className="d-block" interval={2000}>
-        <Row className=" g-1">
-          {this.state.isLoading ? (
-            <p>Caricamento in corso...</p>
-          ) : (
-            arrayFilms
-              .slice(this.props.indexS, this.props.indexE)
-              .map((film, index) => (
-                <Col key={index} md="3" lg="2">
-                  {film.Poster ? (
-                    <>
-                      <img
-                        src={film.Poster}
-                        alt={film.Title}
-                        className="img-fluid w-100"
-                        crossOrigin="anonymous"
-                        /* width={400}
-                        height={400} */
-                      />
-                    </>
-                  ) : (
-                    <p>Caricamento in corso...</p>
-                  )}
-                </Col>
-              ))
-          )}
-        </Row>
-      </Carousel.Item>
+      <Row className=" g-1">
+        {this.state.isLoading ? (
+          <Spinner animation="border" role="status" variant="info">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        ) : (
+          arrayFilms
+            .slice(this.props.indexS, this.props.indexE)
+            .map((film, index) => (
+              <Col key={index}>
+                {film.Poster ? (
+                  <>
+                    <img
+                      src={film.Poster}
+                      alt={film.Title}
+                      crossOrigin="anonymous"
+                      className="img-fluid"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </>
+                ) : (
+                  <Spinner animation="border" role="status" variant="info">
+                    <span className="visually-hidden">Loading...</span>
+                  </Spinner>
+                )}
+              </Col>
+            ))
+        )}
+      </Row>
     );
   }
 }

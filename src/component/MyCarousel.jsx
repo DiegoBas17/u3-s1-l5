@@ -1,14 +1,25 @@
 import { Component } from "react";
-import { Carousel } from "react-bootstrap";
 import MyCarouselItem from "./MyCorouselItem";
+import { Carousel } from "react-bootstrap";
 
 class MyCarousel extends Component {
   render() {
     return (
-      <Carousel>
-        <MyCarouselItem nameFilm={this.props.nameFilm} indexS={0} indexE={3} />
-        <MyCarouselItem nameFilm={this.props.nameFilm} indexS={3} indexE={6} />
-        <MyCarouselItem nameFilm={this.props.nameFilm} indexS={6} indexE={9} />
+      <Carousel fade color="white">
+        <Carousel.Item interval={2000}>
+          <MyCarouselItem
+            nameFilm={this.props.nameFilm}
+            indexS={0}
+            indexE={5}
+          />
+        </Carousel.Item>
+        <Carousel.Item interval={2000}>
+          <MyCarouselItem
+            nameFilm={this.props.nameFilm}
+            indexS={5}
+            indexE={11}
+          />
+        </Carousel.Item>
       </Carousel>
     );
   }
